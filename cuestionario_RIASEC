@@ -1,0 +1,51 @@
+# ==========================================
+# Cuestionario vocacional tipo Holland
+# Primer módulo del proyecto de IA
+# ==========================================
+
+# Definición de áreas vocacionales
+areas = {
+    "R": "Realista (práctico, técnico, mecánico, uso de herramientas)",
+    "I": "Investigador (científico, analítico, explorador)",
+    "A": "Artístico (creativo, innovador, expresivo)",
+    "S": "Social (comunicador, orientado a las personas, solidario)",
+    "E": "Emprendedor (liderazgo, negocios, iniciativa)",
+    "C": "Convencional (organizado, administrativo, metódico)"
+}
+
+# Preguntas del cuestionario (10 en total)
+preguntas = [
+    ("¿Prefieres trabajar con herramientas, máquinas o en actividades prácticas?", "R"),
+    ("¿Te atrae resolver problemas científicos, matemáticos o tecnológicos?", "I"),
+    ("¿Disfrutas de actividades como dibujar, escribir, actuar o crear algo nuevo?", "A"),
+    ("¿Te motiva ayudar a otras personas, enseñar o apoyar a una comunidad?", "S"),
+    ("¿Te entusiasma liderar proyectos, negociar o emprender un negocio?", "E"),
+    ("¿Te sientes cómodo siguiendo procedimientos claros y trabajando con datos u oficina?", "C"),
+    ("¿Prefieres estar en movimiento, al aire libre, construyendo o reparando?", "R"),
+    ("¿Te interesa investigar, hacer experimentos o buscar información profunda?", "I"),
+    ("¿Te gusta participar en proyectos artísticos, música o diseño?", "A"),
+    ("¿Te ves en un rol donde organizas, gestionas información o trabajas con números?", "C"),
+]
+
+# Inicializar contador de respuestas por área
+puntajes = {clave: 0 for clave in areas.keys()}
+
+# Aplicar cuestionario
+print("=== Cuestionario Vocacional (Modelo Holland) ===")
+print("Responde con: 1 (Sí) o 0 (No) \n")
+
+for i, (pregunta, area) in enumerate(preguntas, 1):
+    respuesta = input(f"{i}. {pregunta} ")
+    if respuesta == "1":
+        puntajes[area] += 1
+
+# Determinar resultado
+area_final = max(puntajes, key=puntajes.get)
+
+print("\n=== RESULTADO DEL CUESTIONARIO ===")
+print(f"Tu área vocacional predominante es: {areas[area_final]}")
+
+# (Opcional) Mostrar ranking de áreas
+print("\nRanking de afinidad:")
+for clave, valor in sorted(puntajes.items(), key=lambda x: x[1], reverse=True):
+    print(f"{areas[clave]}: {valor} puntos")
