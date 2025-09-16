@@ -1,0 +1,2 @@
+# prediccion-tendencia-laboral-segun-area-vocacional
+Se pretende con este codigo en lenguaje Python, desarrollar un modelo predictivo de regresión que despues que el usuario se ubique dentro de un area del conocimiento previa realizacion del cuestionario Holland, y que se prediga la tendencia en el mercado laboral de las carreras unicadas en esa área y tome la mejor decision para su fúturo laboral.
